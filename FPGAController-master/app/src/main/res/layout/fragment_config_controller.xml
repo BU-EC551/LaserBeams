@@ -1,0 +1,103 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="spring15.ec551.fpgacontroller.fragments.CalibrateControllerFragment">
+
+    <spring15.ec551.fpgacontroller.resources.CustomTextView
+        android:id="@+id/controller_instruc_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:layout_marginTop="@dimen/vector_margin_first"
+        android:textSize="@dimen/controller_text2"
+        android:text="@string/instruction"
+        android:lines="2" />
+
+    <spring15.ec551.fpgacontroller.resources.CustomTextView
+        android:id="@+id/rotation_angle_num"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/controller_instruc_textview"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/controller_angle_margin"
+        android:gravity="center"
+        android:textSize="@dimen/controller_text2"
+        android:text="@string/angle"
+        android:visibility="invisible"/>
+
+    <ImageView
+        android:id="@+id/example_image"
+        android:layout_width="@dimen/device_image_width"
+        android:layout_height="@dimen/device_image_height"
+        android:src="@drawable/tablet_mid_image"
+        android:layout_centerInParent="true"
+        android:visibility="invisible"/>
+
+    <!-- Lower down views = Higher in Z-Axis -->
+    <ImageView
+        android:id="@+id/device_image"
+        android:layout_width="@dimen/device_image_width"
+        android:layout_height="@dimen/device_image_height"
+        android:src="@drawable/tablet_mid_image"
+        android:layout_centerInParent="true"
+        android:visibility="invisible"/>
+
+    <ImageView
+        android:id="@+id/controller_instruc_baseline"
+        android:layerType="software"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/calibration_line_drawable_yellow"
+        android:layout_centerInParent="true"
+        android:adjustViewBounds="true" />
+
+    <spring15.ec551.fpgacontroller.resources.CustomTextView
+        android:id="@+id/controller_notify_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/controller_notify_margin"
+        android:textSize="@dimen/controller_text2"
+        android:text="@string/notify"/>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/controller_notify_margin"
+        android:layout_above="@id/controller_notify_textview"
+        android:layout_centerHorizontal="true"
+        android:gravity="center" >
+
+        <spring15.ec551.fpgacontroller.resources.CustomTextView
+            android:id="@+id/config_button_left"
+            android:layout_width="@dimen/controller_config_button_width"
+            android:layout_height="@dimen/controller_config_button_height"
+            android:background="@drawable/button_green_selector"
+            android:gravity="center"
+            android:textSize="@dimen/controller_text3"
+            android:layout_marginRight="@dimen/config_button_margin"
+            android:layout_marginEnd="@dimen/config_button_margin"
+            android:clickable="true"/>
+
+        <spring15.ec551.fpgacontroller.resources.CustomTextView
+            android:id="@+id/config_button_right"
+            android:layout_width="@dimen/controller_config_button_width"
+            android:layout_height="@dimen/controller_config_button_height"
+            android:layout_toRightOf="@id/config_button_left"
+            android:layout_toEndOf="@id/config_button_left"
+            android:background="@drawable/button_green_selector"
+            android:gravity="center"
+            android:textSize="@dimen/controller_text3"
+            android:layout_marginLeft="@dimen/config_button_margin"
+            android:layout_marginStart="@dimen/config_button_margin"
+            android:clickable="true"/>
+
+
+    </RelativeLayout>
+
+</RelativeLayout>

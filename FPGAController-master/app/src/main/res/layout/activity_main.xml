@@ -1,0 +1,59 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_black"
+    tools:context=".MainActivity">
+
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <Button
+        android:id="@+id/back_button"
+        android:background="@drawable/button_back_selector"
+        android:layout_width="@dimen/back_button_size"
+        android:layout_height="@dimen/back_button_size"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_margin="@dimen/margin1"/>
+
+    <RelativeLayout
+        android:id="@+id/top_hud_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/top_hud_padding"
+        android:layout_margin="@dimen/margin1"
+        android:background="@color/background_black"
+        android:gravity="center">
+
+        <spring15.ec551.fpgacontroller.resources.CustomTextView
+            android:id="@+id/controller_text"
+            android:layout_height="@dimen/top_hud_item_height"
+            android:layout_width="@dimen/top_hud_item_width"
+            android:layout_marginRight="@dimen/top_hud_item_margin"
+            android:layout_marginEnd="@dimen/top_hud_item_margin"
+            android:textSize="@dimen/status_text_size"
+            android:text="@string/controller"
+            android:gravity="center" />
+
+        <spring15.ec551.fpgacontroller.resources.CustomTextView
+            android:id="@+id/vehicle_text"
+            android:layout_height="@dimen/top_hud_item_height"
+            android:layout_width="@dimen/top_hud_item_width"
+            android:layout_marginLeft="@dimen/top_hud_item_margin"
+            android:layout_marginStart="@dimen/top_hud_item_margin"
+            android:textSize="@dimen/status_text_size"
+            android:text="@string/vehicle"
+            android:gravity="center"
+            android:layout_toRightOf="@id/controller_text"
+            android:layout_toEndOf="@id/controller_text"/>
+
+
+    </RelativeLayout>
+
+</RelativeLayout>

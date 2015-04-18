@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="line">
+    <stroke
+        android:color="@color/flat_green"
+        android:width="@dimen/steering_baseline_stroke_width" />
+        <!--android:dashWidth="@dimen/controller_baseline_dashwidth"-->
+        <!--android:dashGap="@dimen/controller_baseline_dashgap" />-->
+
+    <size
+        android:width="@dimen/controller_baseline_width"
+        android:height="@dimen/controller_baseline_height" />
+
+</shape>

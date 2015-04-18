@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+     android:layout_width="match_parent" android:layout_height="match_parent">
+
+     <LinearLayout
+         android:id="@+id/throttle_hud"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignParentBottom="true"
+         android:layout_alignParentLeft="true"
+         android:layout_alignParentStart="true"
+         android:layout_marginLeft="@dimen/hud_margin"
+         android:layout_marginStart="@dimen/hud_margin"
+         android:layout_marginBottom="@dimen/hud_margin"
+         android:orientation="horizontal"
+         android:gravity="bottom">
+
+         <LinearLayout
+             android:id="@+id/throttle_slider_hud"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:padding="@dimen/hud_padding"
+             android:background="@color/hud_blue">
+
+             <spring15.ec551.fpgacontroller.resources.ThrottleSlider
+                 android:id="@+id/throttle_slider"
+                 android:layout_width="wrap_content"
+                 android:layout_height="@dimen/throttle_bar_length"
+                 android:minHeight="@dimen/throttle_thickness"
+                 android:maxHeight="@dimen/throttle_thickness"/>
+
+         </LinearLayout>
+
+         <LinearLayout
+             android:id="@+id/throttle_text_hud"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:orientation="vertical"
+             android:background="@color/hud_blue"
+             android:padding="@dimen/hud_padding"
+             android:gravity="center_horizontal|bottom">
+
+             <spring15.ec551.fpgacontroller.resources.CustomTextView
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:text="@string/throttle_speed"
+                 android:textSize="@dimen/throttle_text"/>
+
+             <spring15.ec551.fpgacontroller.resources.CustomTextView
+                 android:id="@+id/throttle_speed"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:text="@string/start_speed"
+                 android:textSize="@dimen/throttle_text"/>
+         </LinearLayout>
+     </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/steering_hud"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@id/throttle_hud"
+        android:layout_toEndOf="@id/throttle_hud"
+        android:layout_marginLeft="@dimen/hud_margin"
+        android:layout_marginStart="@dimen/hud_margin"
+        android:layout_marginBottom="@dimen/hud_margin"
+        android:background="@color/hud_blue"
+        android:orientation="horizontal"
+        android:gravity="bottom">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/hud_padding">
+            <ImageView
+                android:id="@+id/steering_rotating_icon"
+                android:layout_width="@dimen/steering_icon"
+                android:layout_height="@dimen/steering_icon"
+                android:layout_centerInParent="true"
+                android:src="@drawable/steering_icon"/>
+            <ImageView
+                android:id="@+id/steering_baseline"
+                android:layerType="software"
+                android:layout_width="@dimen/steering_baseline_width"
+                android:layout_height="wrap_content"
+                android:background="@drawable/calibration_line_drawable_green"
+                android:layout_centerInParent="true"
+                android:adjustViewBounds="true" />
+        </RelativeLayout>
+
+        </LinearLayout>
+    <!--<RelativeLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content">-->
+    <!--<spring15.ec551.fpgacontroller.resources.CustomTextView-->
+    <!--android:id="@+id/left_angle_text"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_alignParentLeft="true"-->
+    <!--android:textSize="@dimen/steering_text_size"-->
+    <!--android:text="@string/angle"/>-->
+
+    <!--<spring15.ec551.fpgacontroller.resources.CustomTextView-->
+    <!--android:id="@+id/right_angle_text"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_alignParentRight="true"-->
+    <!--android:textSize="@dimen/steering_text_size"-->
+    <!--android:text="@string/angle"/>-->
+    <!--</RelativeLayout>-->
+
+     <LinearLayout
+         android:id="@+id/fire_hud"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignParentBottom="true"
+         android:layout_alignParentRight="true"
+         android:layout_alignParentEnd="true"
+         android:layout_marginRight="@dimen/hud_margin"
+         android:layout_marginEnd="@dimen/hud_margin"
+         android:layout_marginBottom="@dimen/hud_margin"
+         android:padding="@dimen/hud_padding"
+         android:gravity="bottom"
+         android:background="@color/hud_blue"
+         android:orientation="horizontal">
+
+             <Button
+                 android:id="@+id/reload_button"
+                 android:background="@drawable/reload_button_selector"
+                 android:layout_width="@dimen/reload_button_dimen"
+                 android:layout_height="@dimen/reload_button_dimen"
+                 android:gravity="bottom"/>
+
+             <Button
+                 android:id="@+id/fire_button"
+                 android:background="@drawable/fire_button_initial"
+                 android:layout_width="@dimen/fire_button_dimen"
+                 android:layout_height="@dimen/fire_button_dimen"
+                 android:layout_marginLeft="@dimen/hud_margin"
+                 android:layout_marginStart="@dimen/hud_margin"
+                 android:gravity="bottom"/>
+
+     </LinearLayout>
+
+     <spring15.ec551.fpgacontroller.resources.AmmoSlider
+         android:id="@+id/ammo_bar"
+         android:layout_width="wrap_content"
+         android:layout_height="@dimen/ammo_bar_height"
+         android:layout_marginBottom="@dimen/ammo_bar_divider"
+         android:layout_above="@id/fire_hud"
+         android:layout_alignLeft="@id/fire_hud"
+         android:layout_alignStart="@id/fire_hud"
+         android:layout_alignRight="@id/fire_hud"
+         android:layout_alignEnd="@id/fire_hud"/>
+
+     <spring15.ec551.fpgacontroller.resources.CustomTextView
+         android:id="@+id/current_ammo"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_marginBottom="@dimen/ammo_bar_divider"
+         android:layout_above="@id/fire_hud"
+         android:layout_alignLeft="@id/fire_hud"
+         android:layout_alignStart="@id/fire_hud"
+         android:layout_alignRight="@id/fire_hud"
+         android:layout_alignEnd="@id/fire_hud"
+         android:text="@string/current_ammo"
+         android:textSize="@dimen/ammo_text_size"
+         android:gravity="center"/>
+
+ </RelativeLayout>

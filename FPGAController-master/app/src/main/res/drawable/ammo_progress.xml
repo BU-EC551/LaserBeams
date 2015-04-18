@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape>
+            <corners
+                android:radius="@dimen/ammo_bar_radius" />
+
+            <stroke
+                android:color="@color/flat_white"
+                android:width="@dimen/ammo_bar_stroke_width" />
+
+            <gradient
+                android:startColor="@color/flat_green"
+                android:centerColor="@color/flat_green"
+                android:endColor="@color/flat_green"
+                android:type="linear"/>
+        </shape>
+    </item>
+</layer-list>

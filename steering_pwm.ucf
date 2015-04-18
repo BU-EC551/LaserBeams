@@ -1,0 +1,14 @@
+
+
+NET "direction[0]" LOC = C4;
+NET "direction[1]" LOC = D9;
+NET "RCServo_pulse" LOC = H3;
+NET "clk" LOC = V10;
+
+
+NET "throttle[0]" LOC = C9;
+NET "throttle[1]" LOC = A8;
+
+# PlanAhead Generated physical constraints 
+
+NET "Throttle_pulse" LOC = G1;

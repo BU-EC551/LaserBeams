@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">FPGAController</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="controller">CONTROLLER</string>
+    <string name="vehicle">VEHICLE</string>
+
+    <string name="reset">RESET NET VALUES</string>
+    <string name="instruction">INSTRUCTION HERE</string>
+    <string name="notify">NOTIFICATION HERE</string>
+    <string name="angle">0&#176;</string>
+
+    <string name="throttle_speed">SPEED</string>
+    <string name="start_speed">+0%</string>
+
+    <string name="ammo">AMMO</string>
+    <string name="current_ammo">0/0</string>
+</resources>
