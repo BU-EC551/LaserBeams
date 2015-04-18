@@ -1,0 +1,45 @@
+//! **************************************************************************
+// Written by: Map P.28xd on Fri Apr 17 20:18:09 2015
+//! **************************************************************************
+
+SCHEMATIC START;
+COMP "clk" LOCATE = SITE "V10" LEVEL 1;
+COMP "cam_xclk" LOCATE = SITE "J6" LEVEL 1;
+COMP "cam_pwdn" LOCATE = SITE "F2" LEVEL 1;
+COMP "btn" LOCATE = SITE "C9" LEVEL 1;
+COMP "cam_href" LOCATE = SITE "J7" LEVEL 1;
+COMP "LED<0>" LOCATE = SITE "U16" LEVEL 1;
+COMP "vga_red<0>" LOCATE = SITE "U7" LEVEL 1;
+COMP "LED<1>" LOCATE = SITE "V16" LEVEL 1;
+COMP "vga_red<1>" LOCATE = SITE "V7" LEVEL 1;
+COMP "LED<2>" LOCATE = SITE "U15" LEVEL 1;
+COMP "cam_d<0>" LOCATE = SITE "E12" LEVEL 1;
+COMP "vga_red<2>" LOCATE = SITE "N7" LEVEL 1;
+COMP "LED<3>" LOCATE = SITE "V15" LEVEL 1;
+COMP "cam_d<1>" LOCATE = SITE "E11" LEVEL 1;
+COMP "LED<4>" LOCATE = SITE "M11" LEVEL 1;
+COMP "cam_d<2>" LOCATE = SITE "F12" LEVEL 1;
+COMP "LED<5>" LOCATE = SITE "N11" LEVEL 1;
+COMP "cam_d<3>" LOCATE = SITE "F11" LEVEL 1;
+COMP "LED<6>" LOCATE = SITE "R11" LEVEL 1;
+COMP "cam_d<4>" LOCATE = SITE "C12" LEVEL 1;
+COMP "LED<7>" LOCATE = SITE "T11" LEVEL 1;
+COMP "cam_d<5>" LOCATE = SITE "F10" LEVEL 1;
+COMP "cam_d<6>" LOCATE = SITE "D12" LEVEL 1;
+COMP "cam_pclk" LOCATE = SITE "K6" LEVEL 1;
+PIN cam_pclk_pin<0> = BEL "cam_pclk" PINNAME PAD;
+PIN "cam_pclk_pin<0>" CLOCK_DEDICATED_ROUTE = FALSE;
+COMP "cam_d<7>" LOCATE = SITE "G11" LEVEL 1;
+COMP "vga_blue<0>" LOCATE = SITE "R7" LEVEL 1;
+COMP "vga_blue<1>" LOCATE = SITE "T7" LEVEL 1;
+COMP "vga_hsync" LOCATE = SITE "N6" LEVEL 1;
+COMP "cam_vsync" LOCATE = SITE "L7" LEVEL 1;
+COMP "cam_reset" LOCATE = SITE "G3" LEVEL 1;
+COMP "vga_green<0>" LOCATE = SITE "P8" LEVEL 1;
+COMP "vga_vsync" LOCATE = SITE "P7" LEVEL 1;
+COMP "vga_green<1>" LOCATE = SITE "T6" LEVEL 1;
+COMP "cam_sioc" LOCATE = SITE "H3" LEVEL 1;
+COMP "vga_green<2>" LOCATE = SITE "V6" LEVEL 1;
+COMP "cam_siod" LOCATE = SITE "G1" LEVEL 1;
+SCHEMATIC END;
+

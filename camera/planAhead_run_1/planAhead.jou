@@ -1,0 +1,19 @@
+#-----------------------------------------------------------
+# PlanAhead v14.2 (64-bit)
+# Build 194362 by xbuild on Fri Jul 20 18:52:11 MDT 2012
+# Start of session at: Fri Apr 17 18:04:37 2015
+# Process ID: 4892
+# Log file: X:/Desktop/camera/planAhead_run_1/planAhead.log
+# Journal file: X:/Desktop/camera/planAhead_run_1/planAhead.jou
+#-----------------------------------------------------------
+start_gui
+source X:/Desktop/camera/pa.fromHdl.tcl
+set_property package_pin "" [get_ports [list  clk]]
+startgroup
+set_property package_pin J6 [get_ports cam_xclk]
+endgroup
+startgroup
+set_property package_pin V10 [get_ports clk]
+endgroup
+set_property package_pin "" [get_ports [list  clk40]]
+save_design

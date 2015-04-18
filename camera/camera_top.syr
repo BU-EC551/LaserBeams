@@ -1,0 +1,916 @@
+Release 14.2 - xst P.28xd (nt64)
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.19 secs
+ 
+--> Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.19 secs
+ 
+--> Reading design: camera_top.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Parsing
+  3) HDL Elaboration
+  4) HDL Synthesis
+       4.1) HDL Synthesis Report
+  5) Advanced HDL Synthesis
+       5.1) Advanced HDL Synthesis Report
+  6) Low Level Synthesis
+  7) Partition Report
+  8) Design Summary
+       8.1) Primitive and Black Box Usage
+       8.2) Device utilization summary
+       8.3) Partition Resource Summary
+       8.4) Timing Report
+            8.4.1) Clock Information
+            8.4.2) Asynchronous Control Signals Information
+            8.4.3) Timing Summary
+            8.4.4) Timing Details
+            8.4.5) Cross Clock Domains Report
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "camera_top.prj"
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "camera_top"
+Output Format                      : NGC
+Target Device                      : xc6slx16-3-csg324
+
+---- Source Options
+Top Module Name                    : camera_top
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Shift Register Extraction          : YES
+ROM Style                          : Auto
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Shift Register Minimum Size        : 2
+Use DSP Block                      : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+LUT Combining                      : Auto
+Reduce Control Sets                : Auto
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 16
+Register Duplication               : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Auto
+Use Synchronous Set                : Auto
+Use Synchronous Reset              : Auto
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 0
+Power Reduction                    : NO
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+DSP48 Utilization Ratio            : 100
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Parsing                                  *
+=========================================================================
+Analyzing Verilog file "\\ad\eng\users\m\d\mdean13\Desktop\camera\vga_controller_640_60.v" into library work
+Parsing module <vga_controller_640_60>.
+Analyzing Verilog file "\\ad\eng\users\m\d\mdean13\Desktop\camera\sender.v" into library work
+Parsing module <sender>.
+WARNING:HDLCompiler:327 - "\\ad\eng\users\m\d\mdean13\Desktop\camera\sender.v" Line 55: Concatenation with unsized literal; will interpret as 32 bits
+WARNING:HDLCompiler:327 - "\\ad\eng\users\m\d\mdean13\Desktop\camera\sender.v" Line 117: Concatenation with unsized literal; will interpret as 32 bits
+WARNING:HDLCompiler:327 - "\\ad\eng\users\m\d\mdean13\Desktop\camera\sender.v" Line 118: Concatenation with unsized literal; will interpret as 32 bits
+Analyzing Verilog file "\\ad\eng\users\m\d\mdean13\Desktop\camera\registers.v" into library work
+Parsing module <registers>.
+WARNING:HDLCompiler:568 - "\\ad\eng\users\m\d\mdean13\Desktop\camera\registers.v" Line 38: Constant value is truncated to fit in <16> bits.
+Analyzing Verilog file "\\ad\eng\users\m\d\mdean13\Desktop\camera\painter.v" into library work
+Parsing module <painter>.
+Analyzing Verilog file "\\ad\eng\users\m\d\mdean13\Desktop\camera\frame_buffer.v" into library work
+Parsing module <frame_buffer>.
+Analyzing Verilog file "\\ad\eng\users\m\d\mdean13\Desktop\camera\debounce.v" into library work
+Parsing module <debounce>.
+Analyzing Verilog file "\\ad\eng\users\m\d\mdean13\Desktop\camera\capture.v" into library work
+Parsing module <capture>.
+Analyzing Verilog file "\\ad\eng\users\m\d\mdean13\Desktop\camera\cam_controller.v" into library work
+Parsing module <cam_controller>.
+Analyzing Verilog file "\\ad\eng\users\m\d\mdean13\Desktop\camera\camera_top.v" into library work
+Parsing module <camera_top>.
+
+=========================================================================
+*                            HDL Elaboration                            *
+=========================================================================
+
+Elaborating module <camera_top>.
+WARNING:HDLCompiler:1127 - "\\ad\eng\users\m\d\mdean13\Desktop\camera\camera_top.v" Line 46: Assignment to rst ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "\\ad\eng\users\m\d\mdean13\Desktop\camera\camera_top.v" Line 47: Assignment to sel ignored, since the identifier is never used
+
+Elaborating module <debounce>.
+WARNING:HDLCompiler:413 - "\\ad\eng\users\m\d\mdean13\Desktop\camera\debounce.v" Line 31: Result of 25-bit expression is truncated to fit in 24-bit target.
+
+Elaborating module <painter>.
+
+Elaborating module <vga_controller_640_60>.
+WARNING:HDLCompiler:189 - "\\ad\eng\users\m\d\mdean13\Desktop\camera\painter.v" Line 64: Size mismatch in connection of port <rst>. Formal port size is 1-bit while actual signal size is 32-bit.
+WARNING:HDLCompiler:189 - "\\ad\eng\users\m\d\mdean13\Desktop\camera\painter.v" Line 69: Size mismatch in connection of port <vcounter>. Formal port size is 11-bit while actual signal size is 10-bit.
+WARNING:HDLCompiler:413 - "\\ad\eng\users\m\d\mdean13\Desktop\camera\painter.v" Line 106: Result of 18-bit expression is truncated to fit in 17-bit target.
+WARNING:HDLCompiler:413 - "\\ad\eng\users\m\d\mdean13\Desktop\camera\painter.v" Line 109: Result of 18-bit expression is truncated to fit in 17-bit target.
+
+Elaborating module <frame_buffer>.
+
+Elaborating module <capture>.
+WARNING:HDLCompiler:413 - "\\ad\eng\users\m\d\mdean13\Desktop\camera\capture.v" Line 58: Result of 16-bit expression is truncated to fit in 15-bit target.
+WARNING:HDLCompiler:413 - "\\ad\eng\users\m\d\mdean13\Desktop\camera\capture.v" Line 64: Result of 3-bit expression is truncated to fit in 2-bit target.
+WARNING:HDLCompiler:413 - "\\ad\eng\users\m\d\mdean13\Desktop\camera\capture.v" Line 76: Result of 2-bit expression is truncated to fit in 1-bit target.
+
+Elaborating module <cam_controller>.
+WARNING:HDLCompiler:327 - "\\ad\eng\users\m\d\mdean13\Desktop\camera\sender.v" Line 55: Concatenation with unsized literal; will interpret as 32 bits
+WARNING:HDLCompiler:327 - "\\ad\eng\users\m\d\mdean13\Desktop\camera\sender.v" Line 117: Concatenation with unsized literal; will interpret as 32 bits
+WARNING:HDLCompiler:327 - "\\ad\eng\users\m\d\mdean13\Desktop\camera\sender.v" Line 118: Concatenation with unsized literal; will interpret as 32 bits
+
+Elaborating module <sender>.
+WARNING:HDLCompiler:413 - "\\ad\eng\users\m\d\mdean13\Desktop\camera\sender.v" Line 55: Result of 63-bit expression is truncated to fit in 32-bit target.
+WARNING:HDLCompiler:413 - "\\ad\eng\users\m\d\mdean13\Desktop\camera\sender.v" Line 60: Result of 9-bit expression is truncated to fit in 8-bit target.
+WARNING:HDLCompiler:413 - "\\ad\eng\users\m\d\mdean13\Desktop\camera\sender.v" Line 117: Result of 63-bit expression is truncated to fit in 32-bit target.
+WARNING:HDLCompiler:413 - "\\ad\eng\users\m\d\mdean13\Desktop\camera\sender.v" Line 118: Result of 63-bit expression is truncated to fit in 32-bit target.
+WARNING:HDLCompiler:413 - "\\ad\eng\users\m\d\mdean13\Desktop\camera\sender.v" Line 122: Result of 9-bit expression is truncated to fit in 8-bit target.
+WARNING:HDLCompiler:189 - "\\ad\eng\users\m\d\mdean13\Desktop\camera\cam_controller.v" Line 49: Size mismatch in connection of port <id>. Formal port size is 8-bit while actual signal size is 9-bit.
+
+Elaborating module <registers>.
+WARNING:HDLCompiler:413 - "\\ad\eng\users\m\d\mdean13\Desktop\camera\registers.v" Line 47: Result of 9-bit expression is truncated to fit in 8-bit target.
+WARNING:HDLCompiler:1127 - "\\ad\eng\users\m\d\mdean13\Desktop\camera\camera_top.v" Line 59: Assignment to config_finished ignored, since the identifier is never used
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Synthesizing Unit <camera_top>.
+    Related source file is "\\ad\eng\users\m\d\mdean13\Desktop\camera\camera_top.v".
+WARNING:Xst:647 - Input <cam_pclk> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+INFO:Xst:3210 - "\\ad\eng\users\m\d\mdean13\Desktop\camera\camera_top.v" line 59: Output port <config_finished> of the instance <cam_control> is unconnected or connected to loadless signal.
+    Summary:
+	no macro.
+Unit <camera_top> synthesized.
+
+Synthesizing Unit <debounce>.
+    Related source file is "\\ad\eng\users\m\d\mdean13\Desktop\camera\debounce.v".
+    Found 1-bit register for signal <o>.
+    Found 24-bit register for signal <c>.
+    Found 24-bit adder for signal <c[23]_GND_2_o_add_2_OUT> created at line 31.
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+	inferred  25 D-type flip-flop(s).
+Unit <debounce> synthesized.
+
+Synthesizing Unit <painter>.
+    Related source file is "\\ad\eng\users\m\d\mdean13\Desktop\camera\painter.v".
+        hRez = 800
+        vRez = 600
+        hMaxCount = 1056
+        hStartSync = 840
+        hEndSync = 968
+        vMaxCount = 628
+        vStartSync = 601
+        vEndSync = 605
+        hsync_active = 1'b1
+        vsync_active = 1'b1
+        N = 2
+        rst = 0
+    Found 1-bit register for signal <pixel_clk>.
+    Found 3-bit register for signal <vga_red>.
+    Found 3-bit register for signal <vga_green>.
+    Found 2-bit register for signal <vga_blue>.
+    Found 17-bit register for signal <address>.
+    Found 2-bit register for signal <count>.
+    Found 17-bit subtractor for signal <address[16]_GND_3_o_sub_14_OUT> created at line 104.
+    Found 2-bit adder for signal <count[1]_GND_3_o_add_1_OUT> created at line 59.
+    Found 17-bit adder for signal <address[16]_GND_3_o_add_16_OUT> created at line 109.
+    Found 10-bit comparator greater for signal <n0007> created at line 95
+    Found 11-bit comparator lessequal for signal <n0009> created at line 100
+    Found 11-bit comparator greater for signal <hCounter[10]_GND_3_o_LessThan_11_o> created at line 100
+    Summary:
+	inferred   3 Adder/Subtractor(s).
+	inferred  28 D-type flip-flop(s).
+	inferred   3 Comparator(s).
+	inferred   2 Multiplexer(s).
+Unit <painter> synthesized.
+
+Synthesizing Unit <vga_controller_640_60>.
+    Related source file is "\\ad\eng\users\m\d\mdean13\Desktop\camera\vga_controller_640_60.v".
+        HMAX = 800
+        VMAX = 525
+        HLINES = 640
+        HFP = 648
+        HSP = 744
+        VLINES = 480
+        VFP = 482
+        VSP = 484
+        SPP = 0
+    Found 11-bit register for signal <hcounter>.
+    Found 11-bit register for signal <vcounter>.
+    Found 1-bit register for signal <HS>.
+    Found 1-bit register for signal <VS>.
+    Found 1-bit register for signal <blank>.
+    Found 11-bit adder for signal <hcounter[10]_GND_4_o_add_4_OUT> created at line 40.
+    Found 11-bit adder for signal <vcounter[10]_GND_4_o_add_12_OUT> created at line 48.
+    Found 11-bit comparator lessequal for signal <n0014> created at line 55
+    Found 11-bit comparator greater for signal <hcounter[10]_GND_4_o_LessThan_20_o> created at line 55
+    Found 11-bit comparator lessequal for signal <n0020> created at line 62
+    Found 11-bit comparator greater for signal <vcounter[10]_GND_4_o_LessThan_23_o> created at line 62
+    Found 11-bit comparator greater for signal <hcounter[10]_GND_4_o_LessThan_24_o> created at line 67
+    Found 11-bit comparator greater for signal <vcounter[10]_GND_4_o_LessThan_25_o> created at line 67
+    Summary:
+	inferred   2 Adder/Subtractor(s).
+	inferred  25 D-type flip-flop(s).
+	inferred   6 Comparator(s).
+Unit <vga_controller_640_60> synthesized.
+
+Synthesizing Unit <frame_buffer>.
+    Related source file is "\\ad\eng\users\m\d\mdean13\Desktop\camera\frame_buffer.v".
+WARNING:Xst:647 - Input <addra<14:12>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <addrb<14:12>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Found 4096x8-bit dual-port RAM <Mram_mem> for signal <mem>.
+    Found 12-bit register for signal <raddr_reg<11:0>>.
+    Summary:
+	inferred   1 RAM(s).
+	inferred  12 D-type flip-flop(s).
+Unit <frame_buffer> synthesized.
+
+Synthesizing Unit <capture>.
+    Related source file is "\\ad\eng\users\m\d\mdean13\Desktop\camera\capture.v".
+    Found 15-bit register for signal <address>.
+    Found 1-bit register for signal <href_last>.
+    Found 2-bit register for signal <cnt>.
+    Found 3-bit register for signal <hold_red>.
+    Found 3-bit register for signal <hold_green>.
+    Found 2-bit register for signal <hold_blue>.
+    Found 8-bit register for signal <d_latch>.
+    Found 1-bit register for signal <count>.
+    Found 1-bit register for signal <we>.
+    Found 15-bit adder for signal <address[14]_GND_6_o_add_7_OUT> created at line 58.
+    Found 2-bit adder for signal <cnt[1]_GND_6_o_add_10_OUT> created at line 64.
+    Found 1-bit adder for signal <count_PWR_7_o_add_17_OUT<0>> created at line 76.
+    Summary:
+	inferred   3 Adder/Subtractor(s).
+	inferred  36 D-type flip-flop(s).
+	inferred   2 Multiplexer(s).
+Unit <capture> synthesized.
+
+Synthesizing Unit <cam_controller>.
+    Related source file is "\\ad\eng\users\m\d\mdean13\Desktop\camera\cam_controller.v".
+        camera_address = 9'b001000010
+    Found 1-bit register for signal <sys_clk>.
+    Summary:
+	inferred   1 D-type flip-flop(s).
+Unit <cam_controller> synthesized.
+
+Synthesizing Unit <sender>.
+    Related source file is "\\ad\eng\users\m\d\mdean13\Desktop\camera\sender.v".
+WARNING:Xst:647 - Input <id> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <regis> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <value> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Found 1-bit register for signal <taken>.
+    Found 1-bit register for signal <sioc>.
+    Found 32-bit register for signal <data_sr>.
+    Found 32-bit register for signal <busy_sr>.
+    Found 8-bit register for signal <divider>.
+    Found finite state machine <FSM_0> for signal <busy_sr>.
+    -----------------------------------------------------------------------
+    | States             | 2                                              |
+    | Transitions        | 5                                              |
+    | Inputs             | 3                                              |
+    | Outputs            | 3                                              |
+    | Clock              | clk (rising_edge)                              |
+    | Power Up State     | 00000000000000000000000000000000               |
+    | Encoding           | auto                                           |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Found 8-bit adder for signal <divider[7]_GND_8_o_add_26_OUT> created at line 122.
+    Found 4x2-bit Read Only RAM for signal <_n0107>
+WARNING:Xst:737 - Found 1-bit latch for signal <siod_temp>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+    Summary:
+	inferred   1 RAM(s).
+	inferred   1 Adder/Subtractor(s).
+	inferred  42 D-type flip-flop(s).
+	inferred   1 Latch(s).
+	inferred   1 Finite State Machine(s).
+Unit <sender> synthesized.
+
+Synthesizing Unit <registers>.
+    Related source file is "\\ad\eng\users\m\d\mdean13\Desktop\camera\registers.v".
+    Found 16-bit register for signal <sreg>.
+    Found 8-bit register for signal <address>.
+    Found 8-bit adder for signal <address[7]_GND_10_o_add_4_OUT> created at line 47.
+    Found 64x16-bit Read Only RAM for signal <_n0188>
+    Summary:
+	inferred   1 RAM(s).
+	inferred   1 Adder/Subtractor(s).
+	inferred  24 D-type flip-flop(s).
+Unit <registers> synthesized.
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# RAMs                                                 : 3
+ 4096x8-bit dual-port RAM                              : 1
+ 4x2-bit single-port Read Only RAM                     : 1
+ 64x16-bit single-port Read Only RAM                   : 1
+# Adders/Subtractors                                   : 11
+ 1-bit adder                                           : 1
+ 11-bit adder                                          : 2
+ 15-bit adder                                          : 1
+ 17-bit adder                                          : 1
+ 17-bit subtractor                                     : 1
+ 2-bit adder                                           : 2
+ 24-bit adder                                          : 1
+ 8-bit adder                                           : 2
+# Registers                                            : 30
+ 1-bit register                                        : 11
+ 11-bit register                                       : 2
+ 12-bit register                                       : 1
+ 15-bit register                                       : 1
+ 16-bit register                                       : 1
+ 17-bit register                                       : 1
+ 2-bit register                                        : 4
+ 24-bit register                                       : 1
+ 3-bit register                                        : 4
+ 32-bit register                                       : 1
+ 8-bit register                                        : 3
+# Latches                                              : 1
+ 1-bit latch                                           : 1
+# Comparators                                          : 9
+ 10-bit comparator greater                             : 1
+ 11-bit comparator greater                             : 5
+ 11-bit comparator lessequal                           : 3
+# Multiplexers                                         : 4
+ 15-bit 2-to-1 multiplexer                             : 2
+ 17-bit 2-to-1 multiplexer                             : 2
+# FSMs                                                 : 1
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+WARNING:Xst:1293 - FF/Latch <data_sr_31> has a constant value of 0 in block <sending>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <siod_temp> (without init value) has a constant value of 0 in block <sending>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:2677 - Node <data_sr_0> of sequential type is unconnected in block <sending>.
+WARNING:Xst:2677 - Node <data_sr_1> of sequential type is unconnected in block <sending>.
+WARNING:Xst:2677 - Node <data_sr_2> of sequential type is unconnected in block <sending>.
+WARNING:Xst:2677 - Node <data_sr_3> of sequential type is unconnected in block <sending>.
+WARNING:Xst:2677 - Node <data_sr_4> of sequential type is unconnected in block <sending>.
+WARNING:Xst:2677 - Node <data_sr_5> of sequential type is unconnected in block <sending>.
+WARNING:Xst:2677 - Node <data_sr_6> of sequential type is unconnected in block <sending>.
+WARNING:Xst:2677 - Node <data_sr_7> of sequential type is unconnected in block <sending>.
+WARNING:Xst:2677 - Node <data_sr_8> of sequential type is unconnected in block <sending>.
+WARNING:Xst:2677 - Node <data_sr_9> of sequential type is unconnected in block <sending>.
+WARNING:Xst:2677 - Node <data_sr_10> of sequential type is unconnected in block <sending>.
+WARNING:Xst:2677 - Node <data_sr_11> of sequential type is unconnected in block <sending>.
+WARNING:Xst:2677 - Node <data_sr_12> of sequential type is unconnected in block <sending>.
+WARNING:Xst:2677 - Node <data_sr_13> of sequential type is unconnected in block <sending>.
+WARNING:Xst:2677 - Node <data_sr_14> of sequential type is unconnected in block <sending>.
+WARNING:Xst:2677 - Node <data_sr_15> of sequential type is unconnected in block <sending>.
+WARNING:Xst:2677 - Node <data_sr_16> of sequential type is unconnected in block <sending>.
+WARNING:Xst:2677 - Node <data_sr_17> of sequential type is unconnected in block <sending>.
+WARNING:Xst:2677 - Node <data_sr_18> of sequential type is unconnected in block <sending>.
+WARNING:Xst:2677 - Node <data_sr_19> of sequential type is unconnected in block <sending>.
+WARNING:Xst:2677 - Node <data_sr_20> of sequential type is unconnected in block <sending>.
+WARNING:Xst:2677 - Node <data_sr_21> of sequential type is unconnected in block <sending>.
+WARNING:Xst:2677 - Node <data_sr_22> of sequential type is unconnected in block <sending>.
+WARNING:Xst:2677 - Node <data_sr_23> of sequential type is unconnected in block <sending>.
+WARNING:Xst:2677 - Node <data_sr_24> of sequential type is unconnected in block <sending>.
+WARNING:Xst:2677 - Node <data_sr_25> of sequential type is unconnected in block <sending>.
+WARNING:Xst:2677 - Node <data_sr_26> of sequential type is unconnected in block <sending>.
+WARNING:Xst:2677 - Node <data_sr_27> of sequential type is unconnected in block <sending>.
+WARNING:Xst:2677 - Node <data_sr_28> of sequential type is unconnected in block <sending>.
+WARNING:Xst:2677 - Node <data_sr_29> of sequential type is unconnected in block <sending>.
+WARNING:Xst:2677 - Node <data_sr_30> of sequential type is unconnected in block <sending>.
+
+Synthesizing (advanced) Unit <camera_top>.
+INFO:Xst:3226 - The RAM <holding/Mram_mem> will be implemented as a BLOCK RAM, absorbing the following register(s): <holding/raddr_reg>
+    -----------------------------------------------------------------------
+    | ram_type           | Block                               |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 4096-word x 8-bit                   |          |
+    |     mode           | read-first                          |          |
+    |     clkA           | connected to signal <clk>           | rise     |
+    |     weA            | connected to signal <capture_we>    | high     |
+    |     addrA          | connected to signal <frame_addr<11:0>> |          |
+    |     diA            | connected to signal <LED>           |          |
+    -----------------------------------------------------------------------
+    | optimization       | speed                               |          |
+    -----------------------------------------------------------------------
+    | Port B                                                              |
+    |     aspect ratio   | 4096-word x 8-bit                   |          |
+    |     mode           | write-first                         |          |
+    |     clkB           | connected to signal <clk>           | rise     |
+    |     addrB          | connected to signal <capture_addr>  |          |
+    |     doB            | connected to signal <frame_pixel>   |          |
+    -----------------------------------------------------------------------
+    | optimization       | speed                               |          |
+    -----------------------------------------------------------------------
+Unit <camera_top> synthesized (advanced).
+
+Synthesizing (advanced) Unit <capture>.
+The following registers are absorbed into counter <count>: 1 register on signal <count>.
+The following registers are absorbed into counter <cnt>: 1 register on signal <cnt>.
+Unit <capture> synthesized (advanced).
+
+Synthesizing (advanced) Unit <debounce>.
+The following registers are absorbed into counter <c>: 1 register on signal <c>.
+Unit <debounce> synthesized (advanced).
+
+Synthesizing (advanced) Unit <painter>.
+The following registers are absorbed into counter <count>: 1 register on signal <count>.
+Unit <painter> synthesized (advanced).
+
+Synthesizing (advanced) Unit <registers>.
+The following registers are absorbed into counter <address>: 1 register on signal <address>.
+INFO:Xst:3231 - The small RAM <Mram__n0188> will be implemented on LUTs in order to maximize performance and save block RAM resources. If you want to force its implementation on block, use option/constraint ram_style.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 64-word x 16-bit                    |          |
+    |     weA            | connected to signal <GND>           | high     |
+    |     addrA          | connected to signal <address<5:0>>  |          |
+    |     diA            | connected to signal <GND>           |          |
+    |     doA            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+Unit <registers> synthesized (advanced).
+
+Synthesizing (advanced) Unit <sender>.
+The following registers are absorbed into counter <divider>: 1 register on signal <divider>.
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram__n0107> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 4-word x 2-bit                      |          |
+    |     weA            | connected to signal <GND>           | high     |
+    |     addrA          | connected to signal <divider<7:6>>  |          |
+    |     diA            | connected to signal <GND>           |          |
+    |     doA            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+Unit <sender> synthesized (advanced).
+
+Synthesizing (advanced) Unit <vga_controller_640_60>.
+The following registers are absorbed into counter <hcounter>: 1 register on signal <hcounter>.
+The following registers are absorbed into counter <vcounter>: 1 register on signal <vcounter>.
+Unit <vga_controller_640_60> synthesized (advanced).
+WARNING:Xst:2677 - Node <data_sr_0> of sequential type is unconnected in block <sender>.
+WARNING:Xst:2677 - Node <data_sr_1> of sequential type is unconnected in block <sender>.
+WARNING:Xst:2677 - Node <data_sr_2> of sequential type is unconnected in block <sender>.
+WARNING:Xst:2677 - Node <data_sr_3> of sequential type is unconnected in block <sender>.
+WARNING:Xst:2677 - Node <data_sr_4> of sequential type is unconnected in block <sender>.
+WARNING:Xst:2677 - Node <data_sr_5> of sequential type is unconnected in block <sender>.
+WARNING:Xst:2677 - Node <data_sr_6> of sequential type is unconnected in block <sender>.
+WARNING:Xst:2677 - Node <data_sr_7> of sequential type is unconnected in block <sender>.
+WARNING:Xst:2677 - Node <data_sr_8> of sequential type is unconnected in block <sender>.
+WARNING:Xst:2677 - Node <data_sr_9> of sequential type is unconnected in block <sender>.
+WARNING:Xst:2677 - Node <data_sr_10> of sequential type is unconnected in block <sender>.
+WARNING:Xst:2677 - Node <data_sr_11> of sequential type is unconnected in block <sender>.
+WARNING:Xst:2677 - Node <data_sr_12> of sequential type is unconnected in block <sender>.
+WARNING:Xst:2677 - Node <data_sr_13> of sequential type is unconnected in block <sender>.
+WARNING:Xst:2677 - Node <data_sr_14> of sequential type is unconnected in block <sender>.
+WARNING:Xst:2677 - Node <data_sr_15> of sequential type is unconnected in block <sender>.
+WARNING:Xst:2677 - Node <data_sr_16> of sequential type is unconnected in block <sender>.
+WARNING:Xst:2677 - Node <data_sr_17> of sequential type is unconnected in block <sender>.
+WARNING:Xst:2677 - Node <data_sr_18> of sequential type is unconnected in block <sender>.
+WARNING:Xst:2677 - Node <data_sr_19> of sequential type is unconnected in block <sender>.
+WARNING:Xst:2677 - Node <data_sr_20> of sequential type is unconnected in block <sender>.
+WARNING:Xst:2677 - Node <data_sr_21> of sequential type is unconnected in block <sender>.
+WARNING:Xst:2677 - Node <data_sr_22> of sequential type is unconnected in block <sender>.
+WARNING:Xst:2677 - Node <data_sr_23> of sequential type is unconnected in block <sender>.
+WARNING:Xst:2677 - Node <data_sr_24> of sequential type is unconnected in block <sender>.
+WARNING:Xst:2677 - Node <data_sr_25> of sequential type is unconnected in block <sender>.
+WARNING:Xst:2677 - Node <data_sr_26> of sequential type is unconnected in block <sender>.
+WARNING:Xst:2677 - Node <data_sr_27> of sequential type is unconnected in block <sender>.
+WARNING:Xst:2677 - Node <data_sr_28> of sequential type is unconnected in block <sender>.
+WARNING:Xst:2677 - Node <data_sr_29> of sequential type is unconnected in block <sender>.
+WARNING:Xst:2677 - Node <data_sr_30> of sequential type is unconnected in block <sender>.
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# RAMs                                                 : 3
+ 4096x8-bit dual-port block RAM                        : 1
+ 4x2-bit single-port distributed Read Only RAM         : 1
+ 64x16-bit single-port distributed Read Only RAM       : 1
+# Adders/Subtractors                                   : 3
+ 15-bit adder                                          : 1
+ 17-bit adder                                          : 1
+ 17-bit subtractor                                     : 1
+# Counters                                             : 8
+ 1-bit up counter                                      : 1
+ 11-bit up counter                                     : 2
+ 2-bit up counter                                      : 2
+ 24-bit up counter                                     : 1
+ 8-bit up counter                                      : 2
+# Registers                                            : 83
+ Flip-Flops                                            : 83
+# Comparators                                          : 9
+ 10-bit comparator greater                             : 1
+ 11-bit comparator greater                             : 5
+ 11-bit comparator lessequal                           : 3
+# Multiplexers                                         : 4
+ 15-bit 2-to-1 multiplexer                             : 2
+ 17-bit 2-to-1 multiplexer                             : 2
+# FSMs                                                 : 1
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+WARNING:Xst:1293 - FF/Latch <data_sr_31> has a constant value of 0 in block <sender>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <siod_temp> (without init value) has a constant value of 0 in block <sender>. This FF/Latch will be trimmed during the optimization process.
+Analyzing FSM <MFsm> for best encoding.
+Optimizing FSM <cam_control/sending/FSM_0> on signal <busy_sr[1:1]> with sequential encoding.
+----------------------------------------------
+ State                            | Encoding
+----------------------------------------------
+ 00000000000000000000000000000000 | 0
+ 11111111111111111111111111111111 | 1
+----------------------------------------------
+WARNING:Xst:1710 - FF/Latch <sioc> (without init value) has a constant value of 1 in block <sender>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:2677 - Node <picasso/address_14> of sequential type is unconnected in block <camera_top>.
+WARNING:Xst:2677 - Node <picasso/address_15> of sequential type is unconnected in block <camera_top>.
+WARNING:Xst:2677 - Node <picasso/address_16> of sequential type is unconnected in block <camera_top>.
+
+Optimizing unit <camera_top> ...
+
+Optimizing unit <capture> ...
+
+Optimizing unit <vga_controller_640_60> ...
+
+Optimizing unit <registers> ...
+
+Optimizing unit <sender> ...
+WARNING:Xst:2677 - Node <bouncy/o> of sequential type is unconnected in block <camera_top>.
+WARNING:Xst:2677 - Node <bouncy/c_0> of sequential type is unconnected in block <camera_top>.
+WARNING:Xst:2677 - Node <bouncy/c_1> of sequential type is unconnected in block <camera_top>.
+WARNING:Xst:2677 - Node <bouncy/c_2> of sequential type is unconnected in block <camera_top>.
+WARNING:Xst:2677 - Node <bouncy/c_3> of sequential type is unconnected in block <camera_top>.
+WARNING:Xst:2677 - Node <bouncy/c_4> of sequential type is unconnected in block <camera_top>.
+WARNING:Xst:2677 - Node <bouncy/c_5> of sequential type is unconnected in block <camera_top>.
+WARNING:Xst:2677 - Node <bouncy/c_6> of sequential type is unconnected in block <camera_top>.
+WARNING:Xst:2677 - Node <bouncy/c_7> of sequential type is unconnected in block <camera_top>.
+WARNING:Xst:2677 - Node <bouncy/c_8> of sequential type is unconnected in block <camera_top>.
+WARNING:Xst:2677 - Node <bouncy/c_9> of sequential type is unconnected in block <camera_top>.
+WARNING:Xst:2677 - Node <bouncy/c_10> of sequential type is unconnected in block <camera_top>.
+WARNING:Xst:2677 - Node <bouncy/c_11> of sequential type is unconnected in block <camera_top>.
+WARNING:Xst:2677 - Node <bouncy/c_12> of sequential type is unconnected in block <camera_top>.
+WARNING:Xst:2677 - Node <bouncy/c_13> of sequential type is unconnected in block <camera_top>.
+WARNING:Xst:2677 - Node <bouncy/c_14> of sequential type is unconnected in block <camera_top>.
+WARNING:Xst:2677 - Node <bouncy/c_15> of sequential type is unconnected in block <camera_top>.
+WARNING:Xst:2677 - Node <bouncy/c_16> of sequential type is unconnected in block <camera_top>.
+WARNING:Xst:2677 - Node <bouncy/c_17> of sequential type is unconnected in block <camera_top>.
+WARNING:Xst:2677 - Node <bouncy/c_18> of sequential type is unconnected in block <camera_top>.
+WARNING:Xst:2677 - Node <bouncy/c_19> of sequential type is unconnected in block <camera_top>.
+WARNING:Xst:2677 - Node <bouncy/c_20> of sequential type is unconnected in block <camera_top>.
+WARNING:Xst:2677 - Node <bouncy/c_21> of sequential type is unconnected in block <camera_top>.
+WARNING:Xst:2677 - Node <bouncy/c_22> of sequential type is unconnected in block <camera_top>.
+WARNING:Xst:2677 - Node <bouncy/c_23> of sequential type is unconnected in block <camera_top>.
+WARNING:Xst:2677 - Node <cam_control/regmod/address_7> of sequential type is unconnected in block <camera_top>.
+WARNING:Xst:2677 - Node <cam_control/regmod/address_6> of sequential type is unconnected in block <camera_top>.
+WARNING:Xst:2677 - Node <cam_control/regmod/address_5> of sequential type is unconnected in block <camera_top>.
+WARNING:Xst:2677 - Node <cam_control/regmod/address_4> of sequential type is unconnected in block <camera_top>.
+WARNING:Xst:2677 - Node <cam_control/regmod/address_3> of sequential type is unconnected in block <camera_top>.
+WARNING:Xst:2677 - Node <cam_control/regmod/address_2> of sequential type is unconnected in block <camera_top>.
+WARNING:Xst:2677 - Node <cam_control/regmod/address_1> of sequential type is unconnected in block <camera_top>.
+WARNING:Xst:2677 - Node <cam_control/regmod/address_0> of sequential type is unconnected in block <camera_top>.
+WARNING:Xst:2677 - Node <cam_control/regmod/sreg_15> of sequential type is unconnected in block <camera_top>.
+WARNING:Xst:2677 - Node <cam_control/regmod/sreg_14> of sequential type is unconnected in block <camera_top>.
+WARNING:Xst:2677 - Node <cam_control/regmod/sreg_13> of sequential type is unconnected in block <camera_top>.
+WARNING:Xst:2677 - Node <cam_control/regmod/sreg_12> of sequential type is unconnected in block <camera_top>.
+WARNING:Xst:2677 - Node <cam_control/regmod/sreg_11> of sequential type is unconnected in block <camera_top>.
+WARNING:Xst:2677 - Node <cam_control/regmod/sreg_10> of sequential type is unconnected in block <camera_top>.
+WARNING:Xst:2677 - Node <cam_control/regmod/sreg_9> of sequential type is unconnected in block <camera_top>.
+WARNING:Xst:2677 - Node <cam_control/regmod/sreg_8> of sequential type is unconnected in block <camera_top>.
+WARNING:Xst:2677 - Node <cam_control/regmod/sreg_7> of sequential type is unconnected in block <camera_top>.
+WARNING:Xst:2677 - Node <cam_control/regmod/sreg_6> of sequential type is unconnected in block <camera_top>.
+WARNING:Xst:2677 - Node <cam_control/regmod/sreg_5> of sequential type is unconnected in block <camera_top>.
+WARNING:Xst:2677 - Node <cam_control/regmod/sreg_4> of sequential type is unconnected in block <camera_top>.
+WARNING:Xst:2677 - Node <cam_control/regmod/sreg_3> of sequential type is unconnected in block <camera_top>.
+WARNING:Xst:2677 - Node <cam_control/regmod/sreg_2> of sequential type is unconnected in block <camera_top>.
+WARNING:Xst:2677 - Node <cam_control/regmod/sreg_1> of sequential type is unconnected in block <camera_top>.
+WARNING:Xst:2677 - Node <cam_control/regmod/sreg_0> of sequential type is unconnected in block <camera_top>.
+WARNING:Xst:2677 - Node <cam_control/sending/divider_7> of sequential type is unconnected in block <camera_top>.
+WARNING:Xst:2677 - Node <cam_control/sending/divider_6> of sequential type is unconnected in block <camera_top>.
+WARNING:Xst:2677 - Node <cam_control/sending/divider_5> of sequential type is unconnected in block <camera_top>.
+WARNING:Xst:2677 - Node <cam_control/sending/divider_4> of sequential type is unconnected in block <camera_top>.
+WARNING:Xst:2677 - Node <cam_control/sending/divider_3> of sequential type is unconnected in block <camera_top>.
+WARNING:Xst:2677 - Node <cam_control/sending/divider_2> of sequential type is unconnected in block <camera_top>.
+WARNING:Xst:2677 - Node <cam_control/sending/divider_1> of sequential type is unconnected in block <camera_top>.
+WARNING:Xst:2677 - Node <cam_control/sending/divider_0> of sequential type is unconnected in block <camera_top>.
+WARNING:Xst:2677 - Node <cam_control/sending/busy_sr_FSM_FFd1> of sequential type is unconnected in block <camera_top>.
+WARNING:Xst:2677 - Node <cam_control/sending/taken> of sequential type is unconnected in block <camera_top>.
+INFO:Xst:2261 - The FF/Latch <cam_control/sys_clk> in Unit <camera_top> is equivalent to the following 2 FFs/Latches, which will be removed : <picasso/count_0> <cam_in/count> 
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block camera_top, actual ratio is 1.
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 85
+ Flip-Flops                                            : 85
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Design Summary                             *
+=========================================================================
+
+Top Level Output File Name         : camera_top.ngc
+
+Primitive and Black Box Usage:
+------------------------------
+# BELS                             : 276
+#      GND                         : 1
+#      INV                         : 11
+#      LUT1                        : 55
+#      LUT2                        : 5
+#      LUT3                        : 14
+#      LUT4                        : 27
+#      LUT5                        : 19
+#      LUT6                        : 18
+#      MUXCY                       : 60
+#      VCC                         : 1
+#      XORCY                       : 65
+# FlipFlops/Latches                : 85
+#      FD                          : 27
+#      FDE                         : 23
+#      FDR                         : 21
+#      FDRE                        : 14
+# RAMS                             : 2
+#      RAMB16BWER                  : 2
+# Clock Buffers                    : 2
+#      BUFG                        : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 33
+#      IBUF                        : 10
+#      OBUF                        : 23
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 6slx16csg324-3 
+
+
+Slice Logic Utilization: 
+ Number of Slice Registers:              85  out of  18224     0%  
+ Number of Slice LUTs:                  149  out of   9112     1%  
+    Number used as Logic:               149  out of   9112     1%  
+
+Slice Logic Distribution: 
+ Number of LUT Flip Flop pairs used:    172
+   Number with an unused Flip Flop:      87  out of    172    50%  
+   Number with an unused LUT:            23  out of    172    13%  
+   Number of fully used LUT-FF pairs:    62  out of    172    36%  
+   Number of unique control sets:         9
+
+IO Utilization: 
+ Number of IOs:                          36
+ Number of bonded IOBs:                  34  out of    232    14%  
+
+Specific Feature Utilization:
+ Number of Block RAM/FIFO:                2  out of     32     6%  
+    Number using Block RAM only:          2
+ Number of BUFG/BUFGCTRLs:                2  out of     16    12%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+Timing Report
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)  | Load  |
+-----------------------------------+------------------------+-------+
+clk                                | BUFGP                  | 62    |
+picasso/pixel_clk                  | BUFG                   | 25    |
+-----------------------------------+------------------------+-------+
+
+Asynchronous Control Signals Information:
+----------------------------------------
+No asynchronous control signals found in this design
+
+Timing Summary:
+---------------
+Speed Grade: -3
+
+   Minimum period: 4.187ns (Maximum Frequency: 238.840MHz)
+   Minimum input arrival time before clock: 4.513ns
+   Maximum output required time after clock: 3.732ns
+   Maximum combinational path delay: No path found
+
+Timing Details:
+---------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'clk'
+  Clock period: 4.134ns (frequency: 241.896MHz)
+  Total number of paths / destination ports: 1092 / 140
+-------------------------------------------------------------------------
+Delay:               4.134ns (Levels of Logic = 2)
+  Source:            cam_in/address_1 (FF)
+  Destination:       cam_in/address_14 (FF)
+  Source Clock:      clk rising
+  Destination Clock: clk rising
+
+  Data Path: cam_in/address_1 to cam_in/address_14
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDE:C->Q              4   0.447   1.048  cam_in/address_1 (cam_in/address_1)
+     LUT6:I0->O            4   0.203   0.931  cam_in/GND_6_o_address[14]_AND_5_o2 (cam_in/GND_6_o_address[14]_AND_5_o2)
+     LUT6:I2->O           15   0.203   0.981  cam_in/_n0077_inv1 (cam_in/_n0077_inv)
+     FDE:CE                    0.322          cam_in/address_0
+    ----------------------------------------
+    Total                      4.134ns (1.175ns logic, 2.959ns route)
+                                       (28.4% logic, 71.6% route)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'picasso/pixel_clk'
+  Clock period: 4.187ns (frequency: 238.840MHz)
+  Total number of paths / destination ports: 665 / 36
+-------------------------------------------------------------------------
+Delay:               4.187ns (Levels of Logic = 3)
+  Source:            picasso/controlling/vcounter_10 (FF)
+  Destination:       picasso/controlling/vcounter_3 (FF)
+  Source Clock:      picasso/pixel_clk rising
+  Destination Clock: picasso/pixel_clk rising
+
+  Data Path: picasso/controlling/vcounter_10 to picasso/controlling/vcounter_3
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FD:C->Q               6   0.447   1.089  picasso/controlling/vcounter_10 (picasso/controlling/vcounter_10)
+     LUT5:I0->O            1   0.203   0.808  picasso/controlling/_n00513 (picasso/controlling/_n00513)
+     LUT6:I3->O           11   0.205   1.130  picasso/controlling/_n00514 (picasso/controlling/_n0051)
+     LUT4:I0->O            1   0.203   0.000  picasso/controlling/vcounter_3_rstpot (picasso/controlling/vcounter_3_rstpot)
+     FD:D                      0.102          picasso/controlling/vcounter_3
+    ----------------------------------------
+    Total                      4.187ns (1.160ns logic, 3.027ns route)
+                                       (27.7% logic, 72.3% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
+  Total number of paths / destination ports: 41 / 26
+-------------------------------------------------------------------------
+Offset:              4.513ns (Levels of Logic = 3)
+  Source:            cam_vsync (PAD)
+  Destination:       cam_in/address_14 (FF)
+  Destination Clock: clk rising
+
+  Data Path: cam_vsync to cam_in/address_14
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             3   1.222   0.898  cam_vsync_IBUF (cam_vsync_IBUF)
+     LUT4:I0->O            1   0.203   0.684  cam_in/GND_6_o_address[14]_AND_5_o3_SW2 (N23)
+     LUT6:I4->O           15   0.203   0.981  cam_in/_n0077_inv1 (cam_in/_n0077_inv)
+     FDE:CE                    0.322          cam_in/address_0
+    ----------------------------------------
+    Total                      4.513ns (1.950ns logic, 2.563ns route)
+                                       (43.2% logic, 56.8% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
+  Total number of paths / destination ports: 17 / 17
+-------------------------------------------------------------------------
+Offset:              3.732ns (Levels of Logic = 1)
+  Source:            cam_control/sys_clk (FF)
+  Destination:       cam_xclk (PAD)
+  Source Clock:      clk rising
+
+  Data Path: cam_control/sys_clk to cam_xclk
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FD:C->Q               5   0.447   0.714  cam_control/sys_clk (cam_control/sys_clk)
+     OBUF:I->O                 2.571          cam_xclk_OBUF (cam_xclk)
+    ----------------------------------------
+    Total                      3.732ns (3.018ns logic, 0.714ns route)
+                                       (80.9% logic, 19.1% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'picasso/pixel_clk'
+  Total number of paths / destination ports: 2 / 2
+-------------------------------------------------------------------------
+Offset:              3.597ns (Levels of Logic = 1)
+  Source:            picasso/controlling/HS (FF)
+  Destination:       vga_hsync (PAD)
+  Source Clock:      picasso/pixel_clk rising
+
+  Data Path: picasso/controlling/HS to vga_hsync
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FD:C->Q               1   0.447   0.579  picasso/controlling/HS (picasso/controlling/HS)
+     OBUF:I->O                 2.571          vga_hsync_OBUF (vga_hsync)
+    ----------------------------------------
+    Total                      3.597ns (3.018ns logic, 0.579ns route)
+                                       (83.9% logic, 16.1% route)
+
+=========================================================================
+
+Cross Clock Domains Report:
+--------------------------
+
+Clock to Setup on destination clock clk
+-----------------+---------+---------+---------+---------+
+                 | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock     |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+-----------------+---------+---------+---------+---------+
+clk              |    4.134|         |         |         |
+picasso/pixel_clk|    4.379|         |         |         |
+-----------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock picasso/pixel_clk
+-----------------+---------+---------+---------+---------+
+                 | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock     |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+-----------------+---------+---------+---------+---------+
+picasso/pixel_clk|    4.187|         |         |         |
+-----------------+---------+---------+---------+---------+
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 10.00 secs
+Total CPU time to Xst completion: 9.73 secs
+ 
+--> 
+
+Total memory usage is 258176 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :  161 (   0 filtered)
+Number of infos    :    5 (   0 filtered)
+

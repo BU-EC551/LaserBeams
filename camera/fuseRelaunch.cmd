@@ -1,0 +1,1 @@
+-intstyle "ise" -incremental -lib "unisims_ver" -lib "unimacro_ver" -lib "xilinxcorelib_ver" -lib "secureip" -o "X:/Desktop/camera/buff_test_isim_beh.exe" -prj "X:/Desktop/camera/buff_test_beh.prj" "work.buff_test" "work.glbl" 

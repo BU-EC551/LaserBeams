@@ -1,0 +1,91 @@
+
+
+####################################################
+
+NET "LED[0]" LOC = U16;
+NET "LED[1]" LOC = V16;
+NET "LED[2]" LOC = U15;
+NET "LED[3]" LOC = V15;
+NET "LED[4]" LOC = M11;
+NET "LED[5]" LOC = N11;
+NET "LED[6]" LOC = R11;
+NET "LED[7]" LOC = T11;
+
+####################################################
+
+NET "vga_blue[0]" LOC = R7;
+NET "vga_blue[1]" LOC = T7;
+
+NET "vga_green[0]" LOC = P8;
+NET "vga_green[1]" LOC = T6;
+NET "vga_green[2]" LOC = V6;
+
+NET "vga_red[0]" LOC = U7;
+NET "vga_red[1]" LOC = V7;
+NET "vga_red[2]" LOC = N7;
+
+NET "vga_hsync" LOC = N6;
+NET "vga_vsync" LOC = P7;
+
+####################################################
+
+NET "cam_d[0]" IOSTANDARD = LVTTL;
+NET "cam_d[0]" SLEW = SLOW;
+NET "cam_d[0]" LOC = E12;
+NET "cam_d[1]" IOSTANDARD = LVTTL;
+NET "cam_d[1]" SLEW = SLOW;
+NET "cam_d[1]" LOC = E11;
+NET "cam_d[2]" IOSTANDARD = LVTTL;
+NET "cam_d[2]" SLEW = SLOW;
+NET "cam_d[2]" LOC = F12;
+NET "cam_d[3]" IOSTANDARD = LVTTL;
+NET "cam_d[3]" SLEW = SLOW;
+NET "cam_d[3]" LOC = F11;
+NET "cam_d[4]" IOSTANDARD = LVTTL;
+NET "cam_d[4]" SLEW = SLOW;
+NET "cam_d[4]" LOC = C12;
+NET "cam_d[5]" IOSTANDARD = LVTTL;
+NET "cam_d[5]" SLEW = SLOW;
+NET "cam_d[5]" LOC = F10;
+NET "cam_d[6]" IOSTANDARD = LVTTL;
+NET "cam_d[6]" SLEW = SLOW;
+NET "cam_d[6]" LOC = D12;
+NET "cam_d[7]" IOSTANDARD = LVTTL;
+NET "cam_d[7]" SLEW = SLOW;
+NET "cam_d[7]" LOC = G11;
+
+####################################################
+
+NET "cam_sioc" IOSTANDARD = LVTTL;
+NET "cam_sioc" SLEW = SLOW;
+NET "cam_sioc" LOC = H3;
+NET "cam_vsync" IOSTANDARD = LVTTL;
+NET "cam_vsync" SLEW = SLOW;
+NET "cam_vsync" LOC = L7;
+NET "cam_href" IOSTANDARD = LVTTL;
+NET "cam_href" SLEW = SLOW;
+NET "cam_href" LOC = J7;
+NET "cam_pclk" IOSTANDARD = LVTTL;
+NET "cam_pclk" SLEW = SLOW;
+NET "cam_pclk" LOC = K6;
+NET "cam_reset" IOSTANDARD = LVTTL;
+NET "cam_reset" SLEW = SLOW;
+NET "cam_reset" LOC = G3;
+NET "cam_pwdn" IOSTANDARD = LVTTL;
+NET "cam_pwdn" SLEW = SLOW;
+NET "cam_pwdn" LOC = F2;
+NET "cam_siod" IOSTANDARD = LVTTL;
+NET "cam_siod" SLEW = SLOW;
+NET "cam_siod" PULLUP;
+NET "cam_siod" LOC = G1;
+NET "cam_xclk" IOSTANDARD = LVTTL;
+NET "cam_xclk" SLEW = SLOW;
+NET "cam_xclk" LOC = J6;
+
+NET "cam_pclk" CLOCK_DEDICATED_ROUTE = FALSE;
+
+NET "btn" LOC = C9;
+
+# PlanAhead Generated physical constraints 
+
+NET "clk" LOC = V10;

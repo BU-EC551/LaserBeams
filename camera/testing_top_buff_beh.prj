@@ -1,0 +1,8 @@
+verilog work "sender.v"
+verilog work "registers.v"
+verilog work "frame_buffer.v"
+verilog work "capture.v"
+verilog work "cam_controller.v"
+verilog work "top_buffer.v"
+verilog work "testing_top_buff.v"
+verilog work "C:/Xilinx/14.2/ISE_DS/ISE//verilog/src/glbl.v"

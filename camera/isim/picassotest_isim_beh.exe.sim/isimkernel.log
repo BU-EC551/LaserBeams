@@ -1,0 +1,28 @@
+Command line:
+   picassotest_isim_beh.exe
+     -simmode  gui
+     -simrunnum  0
+     -socket  57458
+
+Fri Apr 17 16:17:09 2015
+
+
+ Elaboration Time: 0.062401 sec
+
+ Current Memory Usage: 825.274 Meg
+
+ Total Signals          : 22
+ Total Nets             : 47
+ Total Signal Drivers   : 13
+ Total Blocks           : 3
+ Total Primitive Blocks : 2
+ Total Processes        : 18
+ Total Traceable Variables  : 39
+ Total Scalar Nets and Variables : 443
+
+ Total Simulation Time: 0.078001 sec
+
+ Current Memory Usage: 667.988 Meg
+
+Fri Apr 17 16:30:54 2015
+

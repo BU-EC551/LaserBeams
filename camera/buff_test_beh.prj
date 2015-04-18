@@ -1,0 +1,3 @@
+verilog work "frame_buffer.v"
+verilog work "buff_test.v"
+verilog work "C:/Xilinx/14.2/ISE_DS/ISE//verilog/src/glbl.v"
