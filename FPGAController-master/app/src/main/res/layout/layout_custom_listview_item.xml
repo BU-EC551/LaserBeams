@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/menu_list_item_height"
+    android:background="@drawable/button_blue_selector">
+
+    <spring15.ec551.fpgacontroller.resources.CustomTextView
+        android:id="@+id/custom_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:textSize="@dimen/menu_text_size"
+        android:gravity="center"/>
+
+</LinearLayout>

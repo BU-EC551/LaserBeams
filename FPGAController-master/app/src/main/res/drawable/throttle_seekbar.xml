@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android" >
+    <item android:id="@android:id/background" android:left="@dimen/throttle_bar_mid_length">
+        <shape>
+            <corners
+                android:bottomLeftRadius="0dp"
+                android:bottomRightRadius="@dimen/throttle_thickness"
+                android:topLeftRadius="0dp"
+                android:topRightRadius="@dimen/throttle_thickness"/>
+            <gradient
+                android:centerColor="@color/flat_white"
+                android:startColor="@color/flat_white"
+                android:endColor="@color/flat_white"
+                android:type="linear"/>
+        </shape>
+    </item>
+    <item android:id="@android:id/background" android:right="@dimen/throttle_bar_mid_length">
+        <shape>
+            <corners
+                android:bottomLeftRadius="@dimen/throttle_thickness"
+                android:bottomRightRadius="0dp"
+                android:topLeftRadius="@dimen/throttle_thickness"
+                android:topRightRadius="0dp"/>
+            <gradient
+                android:centerColor="@color/flat_yellow"
+                android:startColor="@color/flat_red1"
+                android:endColor="@color/flat_green"
+                android:type="linear"/>
+        </shape>
+    </item>
+
+
+    <item android:id="@android:id/progress">
+        <clip android:drawable="@drawable/throttle_progress" />
+    </item>
+</layer-list>

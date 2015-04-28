@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="oval">
+
+    <solid android:color="@color/flat_white" />
+
+    <stroke android:color="@color/flat_gray2"
+        android:width="2dp" />
+
+    <size android:height="@dimen/throttle_thumb_size"
+        android:width="@dimen/throttle_thumb_size" />
+
+</shape>

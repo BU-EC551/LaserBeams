@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="background_black">#2B2B2B</color>
+
+    <color name="transparent">#00FFFFFF</color>
+    <color name="flat_white">#ECF0F1</color>
+    <color name="hud_black">#11FFFFFF</color>
+    <color name="hud_blue">#993498DB</color>
+    <color name="hud_red">#99E74C3C</color>
+
+    <color name="reload_start">#22313F</color>
+    <color name="reload_center">#2574A9</color>
+    <color name="reload_end">#19B5FE</color>
+
+
+    <color name="flat_gray1">#BDC3C7</color>
+    <color name="flat_gray2">#95A5A6</color>
+    <color name="flat_black1">#2B2B2B</color>
+    <color name="flat_blue1">#3498DB</color>
+    <color name="flat_blue2">#2980B9</color>
+    <color name="flat_red1">#E74C3C</color>
+    <color name="flat_red2">#E26A6A</color>
+    <color name="flat_green">#27AE60</color>
+    <color name="flat_yellow">#F1C40F</color>
+    <color name="reset_color">#ECF0F1</color>
+</resources>

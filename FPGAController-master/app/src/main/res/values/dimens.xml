@@ -1,0 +1,85 @@
+<resources>
+    <!-- For 7" wide tablets -->
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <dimen name="margin1">20dp</dimen>
+
+    <dimen name="top_hud_padding">20dp</dimen>
+    <dimen name="top_hud_item_height">50dp</dimen>
+    <dimen name="top_hud_item_width">300dp</dimen>
+    <dimen name="top_hud_item_margin">15dp</dimen>
+
+    <dimen name="back_button_margin">10dp</dimen>
+
+    <!-- Menu Fragment -->
+    <dimen name="menu_fragment_top_margin">100dp</dimen>
+    <dimen name="menu_list_padding_vertical">30dp</dimen>
+    <dimen name="menu_list_padding_horizontal">30dp</dimen>
+    <dimen name="menu_list_divider_height">20dp</dimen>
+    <dimen name="menu_list_item_height">80dp</dimen>
+    <dimen name="menu_text_size">30sp</dimen>
+
+    <dimen name="status_circle_size">30dp</dimen>
+    <dimen name="status_text_size">20sp</dimen>
+    <dimen name="status_margin">15dp</dimen>
+
+    <dimen name="back_button_size">60dp</dimen>
+
+    <dimen name="vector_margin_first">100dp</dimen>
+    <dimen name="vector_margin">20dp</dimen>
+    <dimen name="button_size">50dp</dimen>
+
+
+    <!-- Controller Configuration Fragment -->
+    <dimen name="controller_text1">15sp</dimen>
+    <dimen name="controller_text2">20sp</dimen>
+    <dimen name="controller_text3">25sp</dimen>
+
+    <dimen name="controller_angle_margin">10dp</dimen>
+
+    <dimen name="controller_baseline_width">400dp</dimen>
+    <dimen name="controller_baseline_stroke_width">3dp</dimen>
+    <dimen name="controller_baseline_height">5dp</dimen>
+    <dimen name="controller_baseline_dashgap">10dp</dimen>
+    <dimen name="controller_baseline_dashwidth">10dp</dimen>
+
+    <dimen name="controller_notify_margin">40dp</dimen>
+    <dimen name="controller_config_button_width">120dp</dimen>
+    <dimen name="controller_config_button_height">60dp</dimen>
+
+    <dimen name="config_button_margin">10dp</dimen>
+
+    <!-- Ratio 16:10 -->
+    <dimen name="device_image_width">160dp</dimen>
+    <dimen name="device_image_height">100dp</dimen>
+
+    <!-- HUD -->
+    <dimen name="hud_margin">20dp</dimen>
+    <dimen name="hud_padding">10dp</dimen>
+    <dimen name="hud_height">110dp</dimen>
+
+    <!-- Throttle -->
+    <dimen name="throttle_bar_length">200dp</dimen>
+    <dimen name="throttle_bar_mid_length">100dp</dimen>
+    <dimen name="throttle_thickness">5dp</dimen>
+    <dimen name="throttle_thumb_size">30dp</dimen>
+    <dimen name="throttle_text">20sp</dimen>
+
+    <!-- Lasers -->
+    <dimen name="fire_button_dimen">70dp</dimen>
+    <dimen name="reload_button_dimen">50dp</dimen>
+    <dimen name="ammo_bar_height">20dp</dimen>
+    <dimen name="ammo_bar_radius">5dp</dimen>
+    <dimen name="ammo_bar_stroke_width">1dp</dimen>
+    <dimen name="ammo_text_size">15sp</dimen>
+    <dimen name="ammo_bar_divider">2dp</dimen>
+
+    <!-- Steering -->
+    <dimen name="steering_text_size">20sp</dimen>
+    <dimen name="steering_icon">60dp</dimen>
+    <dimen name="steering_baseline_width">80dp</dimen>
+    <dimen name="steering_baseline_stroke_width">2dp</dimen>
+
+</resources>
