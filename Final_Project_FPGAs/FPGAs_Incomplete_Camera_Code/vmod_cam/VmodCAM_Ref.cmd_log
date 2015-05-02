@@ -1,0 +1,1 @@
+xst -intstyle ise -ifn "X:/Desktop/vmod_cam/VmodCAM_Ref.xst" -ofn "X:/Desktop/vmod_cam/VmodCAM_Ref.syr" 
