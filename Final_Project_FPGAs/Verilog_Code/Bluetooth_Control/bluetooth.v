@@ -34,7 +34,7 @@ module bluetooth (
 				);
 	reg [3:0] count_t=0,count_r=0;
 	reg [7:0] pack_t=8'b01011000;//info bits
-	reg [7:0] pack_r;//=8'b11111111;	
+	reg [7:0] pack_r =8'b11111111;	
 	//reg [7:0] temp=0;
 	
 	assign STATUS_OUT=STATUS_IN;

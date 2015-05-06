@@ -8,10 +8,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
 import spring15.ec551.fpgacontroller.R;
+import spring15.ec551.fpgacontroller.activities.MainActivity;
 
 /** TODO
  */

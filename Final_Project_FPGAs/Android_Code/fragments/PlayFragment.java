@@ -13,9 +13,12 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.SeekBar;
+import android.widget.Toast;
 
-import java.io.IOException;
 import java.text.DecimalFormat;
+import java.util.ArrayList;
+import java.util.List;
+
 import spring15.ec551.fpgacontroller.R;
 import spring15.ec551.fpgacontroller.accelerometer.ControllerInterfaceListener;
 import spring15.ec551.fpgacontroller.activities.MainActivity;
@@ -31,29 +34,43 @@ import spring15.ec551.fpgacontroller.resources.ThrottleSlider;
    */
 public class PlayFragment extends Fragment implements ControllerInterfaceListener {
 
+    // Constant UI Values
     final int MAX_AMMO = 50;
     final int RELOAD_DELAY = 3;
     final int QUARTER_SEC = 250;    // 0.25 second
     final int TENTH_SEC = 100;      // 0.10 second
 
-    final int STOP = 0;
-    final int BACK = 4;
-    final int FORWARD = 8;
+    // BIT Values that respond to controls
+    final int STOP = 12;    // bit 2,3
+    final int BACK = 8;     // bit 3
+    final int FORWARD = 4;  // bit 2
 
-    final int NEUTRAL = 0;
-    final int LEFT = 1;
-    final int RIGHT = 2;
+    final int NEUTRAL = 3;  // bit 0,1
+    final int LEFT = 1;     // bit 0
+    final int RIGHT = 2;    // bit 1
 
     final int NO_FIRE = 0;
-    final int FIRE_ZE_LAZERS = 16;
+    final int FIRE_ZE_LAZERS = 16;  // bit 5
+
+    // The rate in which values are checked and sent (Deprecated)
+    int RATE_OF_OUTPUT_SIGNAL = 20;   // in milliseconds
+
+    // The sensitivity of steering angle.  Neutral is between +/- Steering Threshold
+    int STEERING_THRESHOLD = 10;
 
     Context mContext;
     FragmentActionListener mListener;
 
+    // Checks for socket connection
+    public static final String SOCKET_BOOLEAN = "SOCKET_BOOLEAN";
+    boolean mIsSocketConnected;
+
     // Steering
     ImageView mSteeringIcon;
-//    CustomTextView mLeftAngle;
-//    CustomTextView mRightAngle;
+    CustomTextView mSteeringAngleText;
+    Button mIncreaseThreshold;
+    Button mDecreaseThreshold;
+    CustomTextView mThresholdText;
 
     // Throttle
     ThrottleSlider mThrottleSlider;
@@ -73,19 +90,25 @@ public class PlayFragment extends Fragment implements ControllerInterfaceListene
     int mCurrentAmmo;
     int mReloadDelay;
 
+    Button mDisableSignal;
+    boolean allowOutput = false;
+
     DecimalFormat speedDecimalFormat;
 
-    // Debug
-    CustomTextView mySignalText;
-    CustomTextView vehicleSignalText;
+    int throttle_state;
+    int steering_state;
+    int laser_state;
 
-    static int throttle_state;
-    static int steering_state;
-    static int laser_state;
-    boolean allowOutput;
+    // Saves the last state so that signals for latches are only sent when there is a change
+    int last_throttle_state = 0;
+    int last_steering_state = 0;
 
-    public static PlayFragment newInstance() {
-        return new PlayFragment();
+    public static PlayFragment newInstance(boolean isSocketConnected) {
+        PlayFragment fragment = new PlayFragment();
+        Bundle args = new Bundle();
+        args.putBoolean(SOCKET_BOOLEAN, isSocketConnected);
+        fragment.setArguments(args);
+        return fragment;
     }
 
     public PlayFragment() {
@@ -95,28 +118,28 @@ public class PlayFragment extends Fragment implements ControllerInterfaceListene
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        if (getArguments() != null) {
+            mIsSocketConnected = getArguments().getBoolean(SOCKET_BOOLEAN);
+        }
+
         MainActivity.ControllerStaticObject.setInterface(this);
         speedDecimalFormat = new DecimalFormat("+###;-###");
         mLaserHandler = new Handler();
         throttle_state = STOP;
         steering_state = NEUTRAL;
         laser_state = NO_FIRE;
-        allowOutput = false;
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_free_roam, container, false);
 
-//        mListener.adjustActivityForPlay();
-
         mListener.adjustActivityForSettings();
 
         // Steering
         mSteeringIcon = (ImageView) view.findViewById(R.id.steering_rotating_icon);
         mSteeringIcon.setRotation(0.0f);
-//        mLeftAngle = (CustomTextView) view.findViewById(R.id.left_angle_text);
-//        mRightAngle = (CustomTextView) view.findViewById(R.id.right_angle_text);
+        mSteeringAngleText = (CustomTextView) view.findViewById(R.id.current_angle_text);
 
         // Throttle
         mThrottleSpeed = (CustomTextView) view.findViewById(R.id.throttle_speed);
@@ -126,12 +149,22 @@ public class PlayFragment extends Fragment implements ControllerInterfaceListene
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 mThrottleSpeed.setText(speedDecimalFormat.format(progress - ThrottleSlider.MID_PROGRESS) + "%");
                 int speed = progress - ThrottleSlider.MID_PROGRESS;
+                String s = "";
                 if (speed == 0) {
                     throttle_state = STOP;
+                    s = "STOP";
                 } else if (speed > 0) {
                     throttle_state = FORWARD;
+                    s = "FORWARD";
                 } else {
                     throttle_state = BACK;
+                    s = "REVERSE";
+                }
+
+                if (!(throttle_state == last_throttle_state)) {
+                    last_throttle_state = throttle_state;
+                    if (mIsSocketConnected && allowOutput) { MainActivity.BluetoothStaticObject.sendByte(throttle_state); }
+                    System.out.println("THROTTLE : " + s);
                 }
             }
 
@@ -143,6 +176,7 @@ public class PlayFragment extends Fragment implements ControllerInterfaceListene
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
             }
+
         });
 
         // Fire
@@ -190,8 +224,46 @@ public class PlayFragment extends Fragment implements ControllerInterfaceListene
             }
         });
 
-        sendInstructions();
-        allowOutput = true;
+        // Steering sensitivity (between +/- threshold value
+        mThresholdText = (CustomTextView) view.findViewById(R.id.th_text);
+        mThresholdText.setText("+/-" + STEERING_THRESHOLD + "\u00B0");
+        mIncreaseThreshold = (Button) view.findViewById(R.id.th_increase);
+        mDecreaseThreshold = (Button) view.findViewById(R.id.th_decrease);
+        mIncreaseThreshold.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (STEERING_THRESHOLD < 45) {
+                    STEERING_THRESHOLD += 1;
+                    mThresholdText.setText("+/-" + STEERING_THRESHOLD + "\u00B0");
+                }
+            }
+        });
+        mDecreaseThreshold.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (STEERING_THRESHOLD > 1) {
+                    STEERING_THRESHOLD -= 1;
+                    mThresholdText.setText("+/-" + STEERING_THRESHOLD + "\u00B0");
+                }
+            }
+        });
+
+        mDisableSignal = (Button) view.findViewById(R.id.pause_signals);
+        mDisableSignal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                allowOutput = !allowOutput;
+            }
+        });
+
+        // If socket is connected, enable allowing outputs to vehicle
+        if (mIsSocketConnected) {
+            allowOutput = true;
+        } else {
+            Toast.makeText(mContext, "No Bluetooth Connection Detected!", Toast.LENGTH_SHORT).show();
+        }
+//        sendInstructions();
+
         return view;
     }
 
@@ -274,6 +346,8 @@ public class PlayFragment extends Fragment implements ControllerInterfaceListene
      */
     private void shootLaser() {
         if (!isAmmoEmpty()) {
+            if (mIsSocketConnected && allowOutput) { MainActivity.BluetoothStaticObject.sendByte(FIRE_ZE_LAZERS); }
+            System.out.println("LASER FIRED!");
             mCurrentAmmo -= 1;
             mAmmoTextView.setText(mCurrentAmmo + "/" + mMaxAmmo);
             mAmmoSlider.setProgress(mCurrentAmmo);
@@ -358,6 +432,7 @@ public class PlayFragment extends Fragment implements ControllerInterfaceListene
     public void onDetach() {
         super.onDetach();
         mListener = null;
+        allowOutput = false;
     }
 
     /**
@@ -376,105 +451,90 @@ public class PlayFragment extends Fragment implements ControllerInterfaceListene
     @Override
     public void onAngleChangeListener(int angleValue) {
         mSteeringIcon.setRotation(angleValue);
-        if (angleValue < 10) {
+        mSteeringAngleText.setText("" + angleValue + "\u00B0");
+
+        String s;
+        if (angleValue < -STEERING_THRESHOLD) {
             steering_state = LEFT;
-        } else if (angleValue > 10) {
+            s = "LEFT";
+        } else if (angleValue > STEERING_THRESHOLD) {
             steering_state = RIGHT;
+            s = "RIGHT";
         } else {
             steering_state = NEUTRAL;
+            s = "NEUTRAL";
+        }
+
+        if (!(steering_state == last_steering_state)) {
+            last_steering_state = steering_state;
+            if (mIsSocketConnected && allowOutput) { MainActivity.BluetoothStaticObject.sendByte(steering_state); }
+            System.out.println("STEERING : " + s);
         }
     }
 
     public void sendInstructions() {
+
         final Handler handler = new Handler();
 
         final Runnable outputRunnable = new Runnable() {
             @Override
             public void run() {
                 if (allowOutput) {
-                    int b = 0;
-                    b = throttle_state + laser_state + steering_state;
-                    MainActivity.BluetoothStaticObject.sendByte(b);
+                    /* Byte Array */
+                    byte[] b_array = generateOutputByteBuffer();
+                    if (b_array.length > 0) {
+                        String s = "";
+                        for (byte b : b_array) {
+                            s += Integer.toHexString(b) + " ";
+                        }
+                        System.out.println("Output: " + s);
+                    }
+                    if (mIsSocketConnected && allowOutput) { MainActivity.BluetoothStaticObject.sendBytes(b_array); }
                 }
-                handler.postDelayed(this, 20);
+//                handler.postDelayed(this, RATE_OF_OUTPUT_SIGNAL);
             }
         };
-        handler.postDelayed(outputRunnable, 20);
 
-//        Thread sendThread = new Thread(outputRunnable);
-//        sendThread.start();
+        handler.post(outputRunnable);
+//        handler.postDelayed(outputRunnable, RATE_OF_OUTPUT_SIGNAL);
+                    /*----------------*/
+
+
+                    /* SINGLE BYTE
+                    final int b = (throttle_state + laser_state + steering_state);
+                    Log.d("Output", Integer.toHexString(b) + " ");
+                    if (mIsSocketConnected) {
+
+                        if (b != 0) {
+                            MainActivity.BluetoothStaticObject.sendByte(b);
+                        }
+                    }
+                    /* --------------- */
     }
 
-    public void resumeSending() {
-        allowOutput = true;
-    }
-
-    public void pauseSending() {
-        allowOutput = false;
-    }
-
-    /*
-    public byte sendInstruction() {
-        if (laser_state == Laser_State.NO_FIRE) {
-            switch (throttle_state) {
-                case STOP:
-                    if (steering_state == Steering_State.NEUTRAL) {
-                        return 0x00;
-                    } else if (steering_state == Steering_State.RIGHT) {
-                        return 0x02;
-                    } else {
-                        return 0x01;
-                    }
-
-                case FORWARD:
-                    if (steering_state == Steering_State.NEUTRAL) {
-                        return 0x08;
-                    } else if (steering_state == Steering_State.RIGHT) {
-                        return 0x0A;
-                    } else {
-                        return 0x09;
-                    }
-                case BACK:
-                    if (steering_state == Steering_State.NEUTRAL) {
-                        return 0x04;
-                    } else if (steering_state == Steering_State.RIGHT) {
-                        return 0x06;
-                    } else {
-                        return 0x05;
-                    }
-            }
-        } else {
-            switch (throttle_state) {
-                case STOP:
-                    if (steering_state == Steering_State.NEUTRAL) {
-                        return 0x10;
-                    } else if (steering_state == Steering_State.RIGHT) {
-                        return 0x12;
-                    } else {
-                        return 0x11;
-                    }
-                case FORWARD:
-                    if (steering_state == Steering_State.NEUTRAL) {
-                        return 0x18;
-                    } else if (steering_state == Steering_State.RIGHT) {
-                        return 0x1A;
-                    } else {
-                        return 0x19;
-                    }
-                case BACK:
-                    if (steering_state == Steering_State.NEUTRAL) {
-                        return 0x14;
-                    } else if (steering_state == Steering_State.RIGHT) {
-                        return 0x16;
-                    } else {
-                        return 0x15;
-                    }
-                default:
-                    return 0x00;
-            }
+    public byte[] generateOutputByteBuffer() {
+        List<Byte> byteBuffer = new ArrayList<>();
+        if (!(throttle_state == last_throttle_state)) {
+            last_throttle_state = throttle_state;
+            byteBuffer.add((byte) throttle_state);
         }
-        return 0x00;
+
+        if (!(steering_state == last_steering_state)) {
+            last_steering_state = steering_state;
+            byteBuffer.add((byte) steering_state);
+        }
+
+        if (laser_state != NO_FIRE) {
+            byteBuffer.add((byte) laser_state);
+        }
+
+        byte[] b_array = new byte[byteBuffer.size()];
+        for (int i=0; i < byteBuffer.size(); i++) {
+            b_array[i] = byteBuffer.get(i);
+        }
+
+        return b_array;
     }
-    */
+
 }
 

@@ -99,7 +99,7 @@ public class ThrottleSlider extends SeekBar {
                             }
                         });
                     }
-                }, 0, 10);
+                }, 0, 5);
                 break;
             case MotionEvent.ACTION_CANCEL:
                 break;

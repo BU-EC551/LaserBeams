@@ -18,9 +18,9 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
-module steering_pwm(clk, RCServo_pulse,direction,throttle,Throttle_pulse//RxD, 
+module steering_pwm(clk, clk_9600, RCServo_pulse,direction,throttle,Throttle_pulse//RxD, 
 );
-input clk;//, RxD;
+input clk,clk_9600;//, RxD;
 output RCServo_pulse;
 output  Throttle_pulse;
 
@@ -63,7 +63,7 @@ case (direction)
 
 1:RCServo_position <= left; //RxD_data_reg;
 2:RCServo_position <= right;
-default: RCServo_position <=neutral;
+3: RCServo_position <=neutral;
 
 endcase
 end
@@ -81,7 +81,7 @@ case (throttle)
 
 1:Throttle_position <= reverse;
 2:Throttle_position <= forward;
-default: Throttle_position <= stop;
+3: Throttle_position <= stop;
 endcase
 end
 ////////////////////////////////////////////////////////////////////////////

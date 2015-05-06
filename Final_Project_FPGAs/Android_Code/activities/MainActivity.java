@@ -142,7 +142,7 @@ public class MainActivity extends ActionBarActivity implements FragmentActionLis
 
     /** FreeRoamFragment initializer */
     private void initializeFreeRoamFragment() {
-        PlayFragment playFragment = PlayFragment.newInstance();
+        PlayFragment playFragment = PlayFragment.newInstance(BluetoothStaticObject.getConnectedSockets());
         FragmentTransaction transaction = getFragmentManager().beginTransaction();
         transaction.replace(R.id.fragment_container, playFragment, FREE_ROAM_FRAGMENT);
         transaction.addToBackStack(FREE_ROAM_FRAGMENT);
